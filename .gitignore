@@ -1,0 +1,60 @@
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Neuroimaging Data
+*.nii
+*.nii.gz
+*.npy
+*.npz
+*.mgz
+
+# Streamlit
+.streamlit/
+.streamlit/secrets.toml
+
+# Cache & Temp
+.cache/
+*.cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+
+# Project specific
+data/
+output/
+*.log
