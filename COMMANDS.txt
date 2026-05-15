@@ -1,0 +1,244 @@
+═══════════════════════════════════════════════════════════════════════════════
+  WINDOWS COMMAND PROMPT - NEUROVISION CLEANUP & GITHUB PUSH
+═══════════════════════════════════════════════════════════════════════════════
+
+COPY AND PASTE THESE COMMANDS INTO WINDOWS COMMAND PROMPT (cmd.exe)
+
+═══════════════════════════════════════════════════════════════════════════════
+  STEP 1: NAVIGATE TO YOUR FOLDER
+═══════════════════════════════════════════════════════════════════════════════
+
+cd C:\Users\pc\Downloads\Brain Vizualisation\Neurovision
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  STEP 2: DELETE OLD FOLDERS AND DUPLICATE FILES
+═══════════════════════════════════════════════════════════════════════════════
+
+rmdir /s /q src
+rmdir /s /q docs
+rmdir /s /q .github
+del PROFESSIONAL_README_SUMMARY.md
+del FINAL_SUMMARY.md
+del PROJECT_STRUCTURE.md
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  STEP 3: VERIFY CLEANUP (Check the new structure)
+═══════════════════════════════════════════════════════════════════════════════
+
+dir
+
+echo.
+echo Verifying source folder:
+dir source
+
+echo.
+echo Verifying documentation folder:
+dir documentation
+
+echo.
+echo Verifying config folder:
+dir config
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  STEP 4: INITIALIZE GIT AND CLEAN UP GIT TRACKING
+═══════════════════════════════════════════════════════════════════════════════
+
+git init
+git config user.name "ayoubriad1"
+git config user.email "ayoub.riad45@example.com"
+git remote add origin https://github.com/YOUR_USERNAME/neurovision.git
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  STEP 5: REMOVE OLD FILES FROM GIT TRACKING
+═══════════════════════════════════════════════════════════════════════════════
+
+git rm --cached -r src 2>nul
+git rm --cached -r docs 2>nul
+git rm --cached -r .github 2>nul
+git rm --cached PROFESSIONAL_README_SUMMARY.md 2>nul
+git rm --cached FINAL_SUMMARY.md 2>nul
+git rm --cached PROJECT_STRUCTURE.md 2>nul
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  STEP 6: STAGE ALL CLEAN FILES
+═══════════════════════════════════════════════════════════════════════════════
+
+git add .
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  STEP 7: VERIFY WHAT WILL BE COMMITTED
+═══════════════════════════════════════════════════════════════════════════════
+
+git status
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  STEP 8: COMMIT WITH PROFESSIONAL MESSAGE
+═══════════════════════════════════════════════════════════════════════════════
+
+git commit -m "Initial commit: Add professional Neurovision brain visualization tool"
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  STEP 9: RENAME BRANCH TO MAIN
+═══════════════════════════════════════════════════════════════════════════════
+
+git branch -M main
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  STEP 10: PUSH TO GITHUB
+═══════════════════════════════════════════════════════════════════════════════
+
+git push -u origin main
+
+When prompted for credentials:
+- Username: YOUR_GITHUB_USERNAME
+- Password: YOUR_PERSONAL_ACCESS_TOKEN (not your GitHub password)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  ALL COMMANDS IN ONE BLOCK (Copy and Paste Everything)
+═══════════════════════════════════════════════════════════════════════════════
+
+cd C:\Users\pc\Downloads\Brain Vizualisation\Neurovision
+
+rmdir /s /q src
+rmdir /s /q docs
+rmdir /s /q .github
+del PROFESSIONAL_README_SUMMARY.md
+del FINAL_SUMMARY.md
+del PROJECT_STRUCTURE.md
+
+dir
+
+git init
+git config user.name "Your Name"
+git config user.email "your.email@example.com"
+git remote add origin https://github.com/YOUR_USERNAME/neurovision.git
+
+git rm --cached -r src 2>nul
+git rm --cached -r docs 2>nul
+git rm --cached -r .github 2>nul
+git rm --cached PROFESSIONAL_README_SUMMARY.md 2>nul
+git rm --cached FINAL_SUMMARY.md 2>nul
+git rm --cached PROJECT_STRUCTURE.md 2>nul
+
+git add .
+
+git status
+
+git commit -m "Initial commit: Add professional Neurovision brain visualization tool"
+
+git branch -M main
+
+git push -u origin main
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  IMPORTANT REPLACEMENTS
+═══════════════════════════════════════════════════════════════════════════════
+
+Replace these in the commands above:
+
+1. YOUR_USERNAME
+   Replace with your actual GitHub username
+   Example: ayoubriad1
+
+2. Your Name
+   Replace with your actual name
+   Example: Ayoub Riad
+
+3. your.email@example.com
+   Replace with your actual email
+   Example: t61199988@gmail.com
+
+4. YOUR_PERSONAL_ACCESS_TOKEN
+   If prompted, use a Personal Access Token instead of your password
+   Create one at: https://github.com/settings/tokens
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  EXPECTED OUTPUT AFTER EACH STEP
+═══════════════════════════════════════════════════════════════════════════════
+
+Step 2 (Delete): Should complete silently (no output = success)
+
+Step 3 (Verify):
+  - Should show source/, documentation/, config/, examples/, tests/
+  - Should NOT show src/, docs/, .github/
+
+Step 7 (Status):
+  - Should show files ready to be committed
+  - Should NOT show src/, docs/, .github/ files
+
+Step 10 (Push):
+  - Should show: "Branch 'main' is set to track remote branch 'main' from 'origin'"
+  - Should show count of files uploaded
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════════
+
+ERROR: "rmdir: The directory is not empty"
+SOLUTION: Add /s /q flags (already in commands above)
+
+ERROR: "git: command not found"
+SOLUTION: Install Git for Windows from https://git-scm.com/download/win
+
+ERROR: "Authentication failed"
+SOLUTION: Use Personal Access Token instead of password
+  1. Go to https://github.com/settings/tokens
+  2. Generate new token
+  3. Use token as password when prompted
+
+ERROR: Files still showing in git status
+SOLUTION: Run "git status" to see what's left, then manually remove
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  FINAL VERIFICATION
+═══════════════════════════════════════════════════════════════════════════════
+
+After completing all steps, your repository will be at:
+  https://github.com/YOUR_USERNAME/neurovision
+
+Verify with these final checks:
+
+1. Check repository on GitHub:
+   https://github.com/YOUR_USERNAME/neurovision
+
+2. Verify folder structure locally:
+   - source/ has 3 Python files
+   - documentation/ has 8 files
+   - config/ has 2 files
+   - NO src/, docs/, or .github/ folders
+
+3. Verify files at root:
+   - README.md
+   - LICENSE
+   - .gitignore
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  SUCCESS INDICATORS
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ All old folders deleted
+✓ Clean professional structure
+✓ Git repository created
+✓ Files committed
+✓ Pushed to GitHub
+✓ Repository is live and public
+✓ Professional names applied
+✓ No duplicates remaining
+✓ Ready for collaboration
+
+═══════════════════════════════════════════════════════════════════════════════
